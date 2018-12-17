@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 	u_fd = Udp_server("0.0.0.0", "14580", (socklen_t *) & llen);
 
 	r_fd = Tcp_connect("127.0.0.1", "14580");
-	snprintf(buf, MAXLEN, "user %s pass %d vers udptolocal 1.0 filter r/31.83/117.29/1\r\n", argv[1], passcode(argv[1]));
+	snprintf(buf, MAXLEN, "user %s pass %d vers udptolocal 1.0 filter b/B*/VR2*/XX9*\r\n", argv[1], passcode(argv[1]));
 	Write(r_fd, buf, strlen(buf));
 	if (debug) {
 		fprintf(stderr, "C: %s", buf);
