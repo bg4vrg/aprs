@@ -1,6 +1,6 @@
 /* aprs.fi.toudp.c v1.0 by  james@ustc.edu.cn 2015.12.19
 
-   connect to asia.aprs2.net. tcp 14580 port, login filter b/B*/VR2*/XX9*
+   connect to asia.aprs2.net. tcp 14580 port, login filter b/B/VR2/XX9
    send all packets to udp host in file "/usr/src/arps/aprs.fi.udpdest"
 
 */
