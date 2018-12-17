@@ -4,7 +4,7 @@
 功能：
 	登录china.aprs2.net服务器，获取呼号前缀为B和VR2的信息
 	存放到数据库china中
-	如果SSID中有-13，并且路径中没有BG6CQ，发给
+	如果SSID中有-13，并且路径中没有CNGD-1，发给
                 114.55.54.60  14580（lewei50.com）
 
 */
@@ -81,7 +81,7 @@ void usage()
 
 int main(int argc, char *argv[])
 {
-	char *call = "BG6DA-4";
+	char *call = "CNGD-1";
 	char *server = "asia.aprs2.net";
 
 	int i = 1;
