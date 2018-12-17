@@ -87,7 +87,7 @@ void usage()
 
 int main(int argc, char *argv[])
 {
-	char *call = "CNGD-1;
+	char *call = "CNGD-1";
 	char *server = "127.0.0.1";
 	signal(SIGCHLD, SIG_IGN);
 	if (argc == 3) {
