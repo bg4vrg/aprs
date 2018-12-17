@@ -53,7 +53,7 @@ void Process(char *server, char *call)
 	optval = 2;
 	Setsockopt(r_fd, SOL_TCP, TCP_KEEPINTVL, &optval, optlen);
 
-	snprintf(buf, MAXLEN, "user %s pass %d vers aprs.fi.toudp 1.5 filter p/B p/VR2 p/9\r\n", call, passcode(call));
+	snprintf(buf, MAXLEN, "user %s pass %d vers aprs.fi.toudp 1.5 filter b/B*/VR2*/XX9*\r\n", call, passcode(call));
 	Write(r_fd, buf, strlen(buf));
 
 	while (1) {
@@ -66,7 +66,7 @@ void Process(char *server, char *call)
 		buf[n] = 0;
 		if (debug)
 			fprintf(stderr, "S %s", buf);
-		if (strstr(buf, "-13>") && (strstr(buf, ",BG6CQ:") == 0))
+		if (strstr(buf, "-13>") && (strstr(buf, ",CNGD-1:") == 0))
 			sendudp(buf, n, "114.55.54.60", 14580);	// forward -13 to lewei50.comI
 		ToMysql(buf, n);
 	}

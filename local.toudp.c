@@ -1,6 +1,6 @@
 /* local.toudp.c v1.0 by  james@ustc.edu.cn 2015.12.19
 
-   connect to 127.0.0.1 tcp 14580 port, login filter t/poimqstunw
+   connect to 127.0.0.1 tcp 14580 port, login 
    send all packets to udp
 	127.0.0.1 14583
 
@@ -75,7 +75,7 @@ void Process(char *server, char *call)
 	optval = 2;
 	Setsockopt(r_fd, SOL_TCP, TCP_KEEPINTVL, &optval, optlen);
 
-	snprintf(buffer, MAXLEN, "user %s pass %d vers aprsfwd 1.5 filter t/poimqstunw\r\n", call, passcode(call));
+	snprintf(buffer, MAXLEN, "user %s pass %d vers aprsfwd 1.5 filter b/B*/VR2*/XX9*\r\n", call, passcode(call));
 	Write(r_fd, buffer, strlen(buffer));
 
 	while (1) {
@@ -99,7 +99,7 @@ void usage()
 
 int main(int argc, char *argv[])
 {
-	char *call = "BG6CQ-5";
+	char *call = "CNGD-1";
 	char *server = "127.0.0.1";
 	signal(SIGCHLD, SIG_IGN);
 	if (argc == 3) {

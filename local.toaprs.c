@@ -1,6 +1,6 @@
 /* local.toaprs.c v1.0 by  james@ustc.edu.cn 2015.12.19
 
-   connect to 127.0.0.1 tcp 14580 port, login filter p/BA p/BD p/BG p/BH p/BR
+   connect to 127.0.0.1 tcp 14580 port, login filter b/B*/VR2*/XX9*
    send all packets to tcp
 	asia.aprs2.net 14580
 
@@ -48,7 +48,7 @@ void Process(char *server, char *call)
 	optval = 2;
 	Setsockopt(r_fd, SOL_TCP, TCP_KEEPINTVL, &optval, optlen);
 
-	snprintf(buffer, MAXLEN, "user %s pass %d vers aprsfwd 1.5 filter p/B\r\n", call, passcode(call));
+	snprintf(buffer, MAXLEN, "user %s pass %d vers aprsfwd 1.5 filter b/B*/VR2*/XX9*\r\n", call, passcode(call));
 	Write(r_fd, buffer, strlen(buffer));
 
 	aprs_fd = Tcp_connect("asia.aprs2.net", "14580");
@@ -61,7 +61,7 @@ void Process(char *server, char *call)
 	optval = 200;
 	Setsockopt(aprs_fd, SOL_TCP, TCP_KEEPINTVL, &optval, optlen);
 
-	snprintf(buffer, MAXLEN, "user %s pass %d vers aprsfwd 1.5 \r\n", call, passcode(call));
+	snprintf(buffer, MAXLEN, "user %s pass %d vers aprsfwd 1.5 filter b/B*/VR2*/XX9*\r\n", call, passcode(call));
 	Write(aprs_fd, buffer, strlen(buffer));
 	while (1) {
 		n = Readline(r_fd, buffer, MAXLEN);
