@@ -1,6 +1,6 @@
 /* aprs.fi.toudp.c v1.0 by  james@ustc.edu.cn 2015.12.19
 
-   connect to asia.aprs2.net. tcp 14580 port, login filter p/B p/VR2
+   connect to asia.aprs2.net. tcp 14580 port, login filter b/B*/VR2*/XX9*
    send all packets to udp host in file "/usr/src/arps/aprs.fi.udpdest"
 
 */
@@ -104,7 +104,7 @@ void Process(char *server, char *call)
 	optval = 2;
 	Setsockopt(r_fd, SOL_TCP, TCP_KEEPINTVL, &optval, optlen);
 
-	snprintf(buffer, MAXLEN, "user %s pass %d vers aprs.fi.toudp 1.5 filter p/B p/VR2\r\n", call, passcode(call));
+	snprintf(buffer, MAXLEN, "user %s pass %d vers aprs.fi.toudp 1.5 filter b/B*/VR2*/XX9*\r\n", call, passcode(call));
 	Write(r_fd, buffer, strlen(buffer));
 
 	while (1) {
@@ -128,7 +128,7 @@ void usage()
 
 int main(int argc, char *argv[])
 {
-	char *call = "BG6CQ-5";
+	char *call = "CNGD-1";
 	char *server = "asia.aprs2.net";
 	signal(SIGCHLD, SIG_IGN);
 	if (argc == 3) {
