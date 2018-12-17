@@ -7,7 +7,7 @@ symbol可以按照下表左侧字符设置:
 
 <?php
 
-$table="/\\2DEGIRY";
+$table="/\\";
 
 echo "<table>";
 echo "<tr>";
